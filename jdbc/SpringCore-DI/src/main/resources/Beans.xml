@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="engine" class="org.example.PetroEngine"></bean> <!--yaha bean tag me ham un classes ko likhte hai jise hame IOC container me load karna hai-->
+    <bean id="diesel" class="org.example.DieselEngine" autowire-candidate="false"></bean>
+    <bean id="car" class="org.example.Car" autowire="constructor">
+        <!--<property name="engine" ref="petrol"></property>  yaha hame jis spring bean ke object ko inject karna hai wo likhte hai and we are using property tag i.e., framework inject this class object using setter dependency method-->
+<!--        <constructor-arg name="engine" ref="diesel"></constructor-arg>-->
+    </bean>
+</beans>
